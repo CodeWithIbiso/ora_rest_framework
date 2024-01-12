@@ -1,0 +1,57 @@
+# https://www.django-rest-framework.org/tutorial/quickstart/
+
+
+# Byte-compiled / optimized Python files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env/
+
+# IDE files
+.vscode/
+*.pyc
+
+# Django specific
+db.sqlite3
+*.log
+*.pot
+*.pyo
+__pycache__/
+local_settings.py
+
+# Media files
+media/
+
+# Static files
+static/
+
+# Dependency directories
+lib/
+lib64/
+bin/
+include/
+share/
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Ignore generated files
+*.pyo
+*.pyc
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.pot
+*.pytz
+
+# Ignore environment variables file
+.env
+
+# Ignore Docker files
+Dockerfile
+docker-compose.yml
