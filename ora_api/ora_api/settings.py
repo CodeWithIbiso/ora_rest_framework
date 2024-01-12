@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'ora_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'test',
+        'NAME': 'ora',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': 'mongodb+srv://ibisodennie:nohackmeo@cluster0.c7anq4j.mongodb.net/?retryWrites=true&w=majority'

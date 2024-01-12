@@ -1,5 +1,5 @@
 # https://www.django-rest-framework.org/tutorial/quickstart/
-
+# git rm -r --cached '*.pyc'
 
 # Byte-compiled / optimized Python files
 __pycache__/

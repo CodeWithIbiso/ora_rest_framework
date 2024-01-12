@@ -1,9 +1,11 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
-from datetime import datetime
 
-from .serializers import GroupSerializer, UserSerializer, CommentSerializer
+from .serializers import GroupSerializer, UserSerializer
 # from ora_api.quickstart.serializers import GroupSerializer, UserSerializer
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Rather than write multiple views we're grouping together all the common behavior into classes called ViewSets.
 # We can easily break these down into individual views if we need to, but using viewsets keeps the view logic nicely organized as well as being very concise.
@@ -13,19 +15,11 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated] # Adding this line will enforce authentication
 
-class Comment:
-    def __init__(self, email, content, created=None):
-        self.email = email
-        self.content = content
-        self.created = created or datetime.now()
+ 
 
 class GroupViewSet(viewsets.ModelViewSet):
-    comment = Comment(email='leila@example.com', content='foo bar')
-    print('comment ',comment)
-    print('serialized comment ', CommentSerializer(comment))
-    print('serialized comment data', CommentSerializer(comment).data)
     """
     API endpoint that allows groups to be viewed or edited.
     """
@@ -35,3 +29,12 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 
+@api_view(['GET', 'POST'])
+def hello_world(request):
+    if request.method == 'POST':
+        return Response({"message": "Got some data!", "data": request.data})
+    return Response({"message": "Hello, world!"})
+
+
+# python manage.py createsuperuser --username admin --email admin@example.com
+# e$sc$7b9wwjx+p)+9$$
