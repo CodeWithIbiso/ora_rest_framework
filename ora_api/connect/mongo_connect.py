@@ -1,6 +1,8 @@
 from pymongo import MongoClient
+import os # this is for dotenv - recheck
 
-MONGO_CONFIG_CREDENTIALS = "mongodb+srv://ibisodennie:nohackmeo@cluster0.c7anq4j.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_URL = os.getenv('DATABASE_URL')
+MONGO_CONFIG_CREDENTIALS = DATABASE_URL
 
 
 def initial_create_collections_and_db(db_name,collection_names):
