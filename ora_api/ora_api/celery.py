@@ -15,5 +15,16 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 # Auto-discover tasks in all installed apps
 app.autodiscover_tasks()
 
-# Set broker_connection_retry_on_startup to True
-app.conf.broker_connection_retry_on_startup = True
+# # Set broker_connection_retry_on_startup to True
+# app.conf.broker_connection_retry_on_startup = True
+
+# =============================================== FOR BEAT SCHEDULER
+
+# Additional Celery Beat configuration
+from datetime import timedelta
+app.conf.beat_schedule = {
+    'run-every-hour': {
+        'task': 'quickstart.tasks.your_celery_task',
+        'schedule': timedelta(seconds=2), #hours=2,seconds=2,days=1,minutes=1
+    },
+}

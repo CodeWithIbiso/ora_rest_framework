@@ -1,8 +1,10 @@
 from pymongo import MongoClient
 import os # this is for dotenv - recheck
+from dotenv import load_dotenv
 
-DATABASE_URL = os.getenv('DATABASE_URL')
-MONGO_CONFIG_CREDENTIALS = DATABASE_URL
+# Load environment variables from .env
+load_dotenv()
+MONGO_CONFIG_CREDENTIALS = os.getenv('DATABASE_URL')
 
 
 def initial_create_collections_and_db(db_name,collection_names):
@@ -18,10 +20,13 @@ def drop_all_collections_in_db(db_name,collection_names):
     for collection_name in collection_names:
         client[db_name][collection_name].drop()
     
-def get_db_handle():
+def get_db_handle(collection_name=None):
     client = MongoClient(MONGO_CONFIG_CREDENTIALS)
     db_handle = client['ora']
     
+    if collection_name:
+        return db_handle[collection_name]
+        
     return db_handle, client
 
 '''

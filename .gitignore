@@ -55,3 +55,4 @@ htmlcov/
 # Ignore Docker files
 Dockerfile
 docker-compose.yml
+algo_.py
