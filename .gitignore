@@ -56,3 +56,4 @@ htmlcov/
 Dockerfile
 docker-compose.yml
 algo_.py
+notes.py

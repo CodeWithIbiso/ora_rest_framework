@@ -30,11 +30,10 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET', 'POST'])
-def hello_world(request):
+def test(request):
     if request.method == 'POST':
         return Response({"message": "Got some data!", "data": request.data})
     return Response({"message": "Hello, world!"})
 
 
-# python manage.py createsuperuser --username admin --email admin@example.com
-# e$sc$7b9wwjx+p)+9$$
+

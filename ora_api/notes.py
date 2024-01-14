@@ -21,3 +21,7 @@
             run_celery_worker()
             self.script_executed = True
 '''
+'''
+# python manage.py createsuperuser --username admin --email admin@example.com
+# e$sc$7b9wwjx+p)+9$$
+'''
